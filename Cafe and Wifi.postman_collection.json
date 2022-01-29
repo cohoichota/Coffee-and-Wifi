@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "baed65a8-5697-4efb-a9a0-15fa5013ea72",
+		"name": "Cafe and Wifi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search Cafes By Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/search?loc=Peckham",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "loc",
+							"value": "Peckham",
+							"description": "Location Name"
+						}
+					]
+				},
+				"description": "`The /seach route will search the cafe database or a cafe that matches the location queried. Use the loc parameter to pass a location name.`\n\n###"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Cafes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/get",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"get"
+					]
+				},
+				"description": "This route returns a json with the data from all cafes in the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Random Cafe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/random",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"random"
+					]
+				},
+				"description": "Returns a random cafe from the database."
+			},
+			"response": []
+		},
+		{
+			"name": "Post a new Cafe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/add?name=Aloha&map_url=https://goo.gl/maps/2EvhB4oq4gyUXKXx9&img_url=https://goo.gl/maps/2EvhB4oq4gyU&loc=Manchester&seats=2&toilet=1&wifi=1&sockets=1&calls=1&price=$4&api_key=TopSecretAPIKey",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"add"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Aloha"
+						},
+						{
+							"key": "map_url",
+							"value": "https://goo.gl/maps/2EvhB4oq4gyUXKXx9"
+						},
+						{
+							"key": "img_url",
+							"value": "https://goo.gl/maps/2EvhB4oq4gyU"
+						},
+						{
+							"key": "loc",
+							"value": "Manchester"
+						},
+						{
+							"key": "seats",
+							"value": "2"
+						},
+						{
+							"key": "toilet",
+							"value": "1"
+						},
+						{
+							"key": "wifi",
+							"value": "1"
+						},
+						{
+							"key": "sockets",
+							"value": "1"
+						},
+						{
+							"key": "calls",
+							"value": "1"
+						},
+						{
+							"key": "price",
+							"value": "$4"
+						},
+						{
+							"key": "api_key",
+							"value": "TopSecretAPIKey"
+						}
+					]
+				},
+				"description": "Adds a new cafe entry to the database. Requires authentication with api-key parameter."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Price",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/update-price/22?new_price=$3.8",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"update-price",
+						"22"
+					],
+					"query": [
+						{
+							"key": "new_price",
+							"value": "$3.8"
+						}
+					]
+				},
+				"description": "Update the price of a black coffee at a particular cafe. Using the id and new_price parameters."
+			},
+			"response": []
+		},
+		{
+			"name": "Detete a Cafe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/report-closed/22?api_key=TopSecretAPIKey",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"report-closed",
+						"22"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "TopSecretAPIKey"
+						}
+					]
+				},
+				"description": "Deletes a cafe from the database. You will need to provide the id of the cafe to delete as a route. You will also need to provide a valid API for this operation to be allowed."
+			},
+			"response": []
+		}
+	]
+}
